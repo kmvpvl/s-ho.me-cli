@@ -1,0 +1,37 @@
+.user-management-container {
+    grid-area: user;
+}
+
+.user-management-loginform {
+    position: absolute;
+    width: fit-content;
+    height: auto;
+    min-height: fit-content;
+    max-height: fit-content;
+    max-width: 80%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: auto;
+    border-radius: 5px;
+    padding: 1em;
+    border: var(--text-color) 1px solid;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: grid;
+    grid-template-areas: 
+    "intro intro intro intro intro"
+    "blank1 tg tgedit btnget blank2"
+    "blank3 haveauth authedit login blank4";
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr auto auto auto 1fr;
+    gap: 0.5em;
+}
+
+.user-management-loginform-intro {
+    grid-area: intro;
+    text-align: justify;
+}
+  
