@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import User from './components/user';
+import User from './components/org/org';
 
 interface IAppProps {
 
