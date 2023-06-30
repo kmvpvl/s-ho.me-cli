@@ -8,9 +8,8 @@ export class SHomeError extends Error{
 } 
 export type TServerVersion = string;
 
-export interface IServerInfo {
-    version?: TServerVersion;
-    organizationid?: number;
+export interface ILoginReq {
+    organizationid?: string;
     authtoken?: string;
 }
 
@@ -65,9 +64,9 @@ export function serverFetch(command: string, method: string, headers?: HeadersIn
     });
 }
 
-export function serverCommand (command: string, si: IServerInfo, body?: BodyInit, successcb?: (res: any)=>void, failcb?: (err: SHomeError)=>void){
+export function serverCommand (command: string, lr?: ILoginReq, body?: BodyInit, successcb?: (res: any)=>void, failcb?: (err: SHomeError)=>void){
     serverFetch(command, 'POST', {
-        shome_organizationid: si.organizationid?si.organizationid.toString():'',
-        shome_authtoken: si.authtoken?si.authtoken:''
+        shome_organizationid: lr?.organizationid?lr.organizationid.toString():'',
+        shome_authtoken: lr?.authtoken?lr.authtoken:''
     }, body, successcb, failcb);
 }
