@@ -13,11 +13,11 @@ export class Devices extends React.Component<IDevicesProps, IDevicesState> {
     render(): React.ReactNode {
         const bkgndimg = this.props.devices.length?`img/customers/${'TestEntrance'}.png`:undefined;
         return <>
-        <div className='devices-management-container' style={{backgroundImage:`url(${bkgndimg})`}}>
+        {this.props.devices.length?<div className='devices-management-container' style={{backgroundImage:`url(${bkgndimg})`}}>
         {this.props.devices.map((v, i)=> 
             <Device key={i} data={v}/>
         )}
-        </div>
+        </div>:<span></span>}
         </>;
     }
 }
