@@ -92,7 +92,6 @@ export default class App extends React.Component<IAppProps, IAppState> {
         <Layers layers={this.state.orginfo?(this.state.orginfo as any).layers:[]} onLayerChanged={layer=>{
             const devIds = this.state.orginfo.devices?.filter(v=>layer==='' || v.location.layer===layer)
                 .map((v, i)=>v.id);
-            debugger
             this.pendingRef.current?.incUse();
             serverCommand('getlastvalues', this.state.credentials, JSON.stringify(devIds), res=>{
                 this.pendingRef.current?.decUse();

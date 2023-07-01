@@ -1,7 +1,7 @@
 .pending-squares-container {
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto auto 2em;
     position: absolute;
     margin: auto;
     top: 0;
@@ -15,13 +15,22 @@
     opacity: 0.8;
 }
 
-.pending-squares-square {
+.pending-squares-square{
     width: 1em;
     height: 1em;
     background-color: silver;
     transform-origin: center center;
     animation: squares-spin 1s cubic-bezier(.8, 0, .2, 1) infinite;
 }
+.pending-squares-caption {
+    width: 1em;
+    height: 2em;
+    text-align: center;
+    overflow: visible;
+    font-size: larger;
+    margin-top: 1em;
+}
+
 @keyframes squares-spin {
     50% { transform: rotate(180deg) scale(1.5); }
     100% { transform: rotate(360deg) scale(1); }

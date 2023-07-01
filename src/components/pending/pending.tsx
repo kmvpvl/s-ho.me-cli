@@ -8,15 +8,18 @@ type IPendingProps = {
 
 type IPendingState = {
     useCount: number;
+    caption?: string;
 }
 
 export default class Pending extends React.Component <IPendingProps, IPendingState>{
     state: IPendingState = {
-        useCount:0,
+        useCount: 0,
+        caption: undefined
     }
-    incUse(){
+    incUse(caption: string = "Loading..."){
         const nState: IPendingState = this.state;
         nState.useCount++;
+        nState.caption = caption;
         this.setState(nState);
     }
     decUse(){
@@ -46,6 +49,7 @@ export default class Pending extends React.Component <IPendingProps, IPendingSta
                     <span className='pending-squares-square' style={{transformOrigin:'left bottom'}}></span>
                     <span className='pending-squares-square' style={{transformOrigin:'center bottom'}}></span>
                     <span className='pending-squares-square' style={{transformOrigin:'right bottom'}}></span>
+                    <span className='pending-squares-caption'>{this.state.caption}</span><span></span><span></span>
                 </div>
             </>;
         }
